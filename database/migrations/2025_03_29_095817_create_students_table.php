@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('phone');
             $table->enum('status', ['prospective', 'current', 'alumni'])->default('prospective');
             $table->foreignId('university_id')->nullable()->constrained()->onDelete('set null');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

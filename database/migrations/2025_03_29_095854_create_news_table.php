@@ -15,8 +15,12 @@ return new class extends Migration
             $table->text('excerpt');
             $table->text('content');
             $table->string('image')->nullable();
-            $table->date('published_at');
+            $table->timestamp('published_at')->nullable()->comment('Дата и время публикации в UTC');
             $table->timestamps();
+            
+            // Индексы для оптимизации
+            $table->index('published_at');
+            $table->index('slug');
         });
     }
 
